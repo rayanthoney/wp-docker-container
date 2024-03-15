@@ -22,9 +22,9 @@
 - 🤖 [Introduction](#introduction)
 - ⚙️ [Tech Stack](#tech-stack) 
 - 🔋 [Requirements](#requirements)
+- 🕸️ [Code Snippet](#code-snippet)
 - 🚀 [Installation](#installation)
 - 📦 [Usage](#usage)
-- 🕸️ [Code Snippets](#code-snippets)
 - 🛠️ [Customization](#customization)
 
 <br />
@@ -50,53 +50,7 @@ To get started with this Docker Compose setup, follow these steps:
 
 Make sure you have the latest versions of **Docker** and **Docker Compose** installed on your machine.
 
-Access your WordPress site at http://localhost:8000 and phpMyAdmin at http://localhost:8080 in your browser.
-
-## <a name="installation">🚀 Installation</a>
-
-Open a terminal and `cd` to the folder in which `docker-compose.yml` is saved and run:
-
-```
-docker-compose up
-```
-
-## <a name="usage">📦 Usage</a>
-
-### Starting containers
-
-You can start the containers with the `up` command in daemon mode (by adding `-d` as an argument) or by using the `start` command:
-
-```
-docker-compose start
-```
-
-### Stopping containers
-
-```
-docker-compose stop
-```
-
-### Removing containers
-
-To stop and remove all the containers use the`down` command:
-
-```
-docker-compose down
-```
-
-Use `-v` if you need to remove the database volume which is used to persist the database:
-
-```
-docker-compose down -v
-```
-
-### phpMyAdmin
-
-You can also visit `http://localhost:8080` to access phpMyAdmin after starting the containers.
-
-The default username is `root`, and the password is the same as supplied in the `.env` file.
-
-## <a name="code-snippets">🕸️ Code Snippets</a>
+## <a name="code-snippets">🕸️ Code Snippet</a>
 
 <details>
 <summary><code>wordpress-docker/compose.yaml</code></summary>
@@ -165,6 +119,61 @@ volumes:
 
 ```
 </details>
+
+## Services
+
+### WordPress
+The WordPress service provides a robust content management system (CMS) for building dynamic websites and blogs. With Docker, managing WordPress becomes hassle-free, ensuring a consistent development environment across different platforms.
+
+### MySQL
+MySQL serves as the relational database management system (RDBMS) for storing WordPress data. Our Dockerized MySQL setup includes features like secrets management for secure password handling and data volume management for persistence.
+
+### phpMyAdmin
+phpMyAdmin offers a user-friendly web interface for managing MySQL databases. With our Docker Compose setup, you can easily access and interact with your MySQL databases through phpMyAdmin, streamlining database management tasks.
+
+## <a name="installation">🚀 Installation</a>
+
+Open a terminal and `cd` to the folder in which `docker-compose.yml` is saved and run:
+
+```
+docker-compose up
+```
+
+## <a name="usage">📦 Usage</a>
+
+### Starting containers
+
+You can start the containers with the `up` command in daemon mode (by adding `-d` as an argument) or by using the `start` command:
+
+```
+docker-compose start
+```
+
+### Stopping containers
+
+```
+docker-compose stop
+```
+
+### Removing containers
+
+To stop and remove all the containers use the`down` command:
+
+```
+docker-compose down
+```
+
+Use `-v` if you need to remove the database volume which is used to persist the database:
+
+```
+docker-compose down -v
+```
+
+### phpMyAdmin
+
+Access your WordPress site at `http://localhost:8000` and phpMyAdmin at `http://localhost:8080` in your browser.
+
+The default username is `root`, and the password is the same as supplied in the `.env` file.
 
 ## <a name="customization">🛠️ Customization</a>
 
