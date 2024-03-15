@@ -1,4 +1,4 @@
-# Wordpress Docker, MySQL, phpMyAdmin 
+# Wordpress Docker, Compose, MySQL, phpMyAdmin 
 
 <div align="center" >
 <!-- link to project -->
@@ -16,6 +16,8 @@
     <img src="https://img.shields.io/badge/-MySQL-black?style=for-the-badge&logoColor=white&logo=mysql&color=e57b16" alt="wordmysqlpress" />    
     <img src="https://img.shields.io/badge/-phpMyAdmin-black?style=for-the-badge&logoColor=white&logo=phpmyadmin&color=717cb2" alt="phpmyadmin" />
   </div>
+
+
 
 ## 📋 <a name="table">Table of Contents</a>
 
