@@ -1,0 +1,53 @@
+version: '3.1'
+
+services:
+
+  wordpress: 
+    image: wordpress
+    restart: always
+    ports:
+      - 8000:80
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_NAME: db
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/db_password
+      # WORDPRESS_DB_PASSWORD: password
+    volumes:
+      - ./wordpress:/var/www/html
+    secrets:
+      - db_password
+  db:
+    image: mysql:8.0
+    restart: always 
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+      MYSQL_DATABASE: db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      # MYSQL_PASSWORD: password
+      # MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - db:/var/lib/mysql 
+    secrets:
+      - db_root_password
+      - db_password
+  phpmyadmin: 
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    ports:
+      - 8080:80
+secrets:
+  db_password:
+    file: db_password.txt
+  db_root_password:
+    file: db_root_password.txt  
+volumes:
+  wordpress:
+  db:
+  
+
